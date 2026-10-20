@@ -24,6 +24,7 @@ Each starter activity object:
 | `durationMinutes` | number | `20`                                   |
 | `prepMinutes`   | number   | `10`                                   |
 | `materials`     | array of strings | `["sorting bins", "colored pom-poms"]` |
+| `image`         | string (path) | `"images/color-sorting.jpg"` — a reference photo of the activity, shown on its card |
 
 ### 1b. Scheduled Plan (user-created, saved in `localStorage`)
 
@@ -76,11 +77,12 @@ Computed fresh from state on every render — never stored directly:
    small table or list: "Oct 22 — 35 min prep needed").
 2. **Upcoming activities with materials & status** — scheduled entries with
    a `date` of today or later, sorted by date, showing: activity name, date,
-   age range, materials list (with ready/not-ready checkboxes **per
-   material**), and a clearly visible **overall status badge** for the whole
-   activity ("Ready" when every material is checked, "Needs Prep"
-   otherwise) — so the user can tell at a glance whether an activity is
-   fully prepped without reading every checkbox.
+   age range, a reference photo of the activity, materials list (with
+   ready/not-ready checkboxes **per material**), and a clearly visible
+   **overall status badge** for the whole activity ("Ready" when every
+   material is checked, "Needs Prep" otherwise) — so the user can tell at a
+   glance whether an activity is fully prepped without reading every
+   checkbox.
 
 ---
 

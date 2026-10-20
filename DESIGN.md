@@ -83,6 +83,14 @@ Extracted from rootmapmvp's shipped CSS custom properties (light theme).
   - "Needs Prep" → `--danger` background.
 - **Metadata pills** (date/age/duration on each card): small pill,
   `--mint` background, `--primary-dark` text.
+- **Activity photo**: a reference photo of the activity, placed on the
+  card **below the metadata pills and above the materials checklist**.
+  Fixed `4:3` aspect ratio with `object-fit: cover` so card heights stay
+  consistent regardless of the source photo's proportions. Rounded
+  corners (`border-radius: 14px`, slightly smaller than the card's own
+  20px so it reads as nested), full card width, `0.75rem` margin below it
+  before the checklist starts. Always includes descriptive `alt` text
+  (the activity name) — it's content, not decoration.
 - **Checkboxes**: native checkbox, `accent-color: var(--primary)`,
   fixed `18px` size (not stretched — see note below), left-aligned next to
   its material label with `0.5rem` gap.
