@@ -179,4 +179,73 @@ function renderAll() {
   renderActivitiesList();
 }
 
+// --- Validation + schedule action (PRD.md sections 2 and 4) ---
+
+function showFieldError(fieldErrorId, message) {
+  const span = document.getElementById(fieldErrorId);
+  span.textContent = message;
+  span.hidden = false;
+}
+
+function clearFieldError(fieldErrorId) {
+  const span = document.getElementById(fieldErrorId);
+  span.textContent = "";
+  span.hidden = true;
+}
+
+function handleScheduleSubmit(event) {
+  event.preventDefault();
+
+  const activitySelect = document.getElementById("activity-select");
+  const dateInput = document.getElementById("date-input");
+  const activityId = activitySelect.value;
+  const date = dateInput.value;
+
+  // Validate both fields before touching state, so an invalid submission
+  // never partially adds an entry or clears what the user already typed.
+  let hasError = false;
+
+  if (!activityId) {
+    showFieldError("activity-error", "Please choose an activity.");
+    hasError = true;
+  } else {
+    clearFieldError("activity-error");
+  }
+
+  if (!date) {
+    showFieldError("date-error", "Please choose a date.");
+    hasError = true;
+  } else {
+    clearFieldError("date-error");
+  }
+
+  if (hasError) return;
+
+  const activity = getActivityById(activityId);
+  const materialsReady = {};
+  activity.materials.forEach((material) => {
+    materialsReady[material] = false;
+  });
+
+  scheduledEntries.push({
+    scheduleId: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    activityId,
+    date,
+    materialsReady
+  });
+
+  saveScheduledEntries();
+
+  // Reset the form for the next entry, since the activity/date just used
+  // are no longer meaningful to leave filled in.
+  activitySelect.value = "";
+  dateInput.value = "";
+
+  renderSummaryChips();
+  renderDateFilterOptions();
+  renderActivitiesList();
+}
+
+document.getElementById("schedule-form").addEventListener("submit", handleScheduleSubmit);
+
 renderAll();
