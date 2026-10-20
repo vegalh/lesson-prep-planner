@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trial 2 — Compact List (Mobile-first)</title>
+<style>
+  :root {
+    --bg: #f2f5f7;
+    --panel: #ffffff;
+    --ink: #1f2933;
+    --accent: #2f6690;
+    --ready: #2f7d4f;
+    --needs-prep: #b23a3a;
+    --border: #d7dee3;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+  }
+  header {
+    background: var(--accent);
+    color: white;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+  }
+  header h1 { margin: 0; font-size: 1.2rem; }
+  header p { margin: 0.1rem 0 0; font-size: 0.8rem; opacity: 0.9; }
+  main {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0.75rem;
+  }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .panel h2 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  label { font-size: 0.75rem; color: #51606b; }
+  select, input, button {
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 0.45rem;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    width: 100%;
+  }
+  button {
+    background: var(--accent);
+    color: white;
+    border: none;
+  }
+  .filter-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .filter-row select { width: auto; flex: 1; }
+  .totals {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .totals:last-child { border-bottom: none; }
+  .activity-row {
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 0;
+  }
+  .activity-row:last-child { border-bottom: none; }
+  .row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .row-top h3 { margin: 0; font-size: 0.95rem; }
+  .status-pill {
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    color: white;
+  }
+  .status-ready { background: var(--ready); }
+  .status-needs-prep { background: var(--needs-prep); }
+  .meta { font-size: 0.75rem; color: #51606b; margin: 0.15rem 0 0.35rem; }
+  .materials-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.35rem;
+    font-size: 0.85rem;
+  }
+  .materials-list li { display: flex; gap: 0.4rem; align-items: center; padding: 0.1rem 0; }
+  .row-actions { text-align: right; }
+  .row-actions button {
+    width: auto;
+    background: none;
+    color: var(--needs-prep);
+    border: 1px solid var(--needs-prep);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Lesson Prep Planner</h1>
+  <p>Trial 2 — Compact list · Cool palette · Mobile-first</p>
+</header>
+<main>
+  <section class="panel">
+    <h2>Schedule</h2>
+    <div class="form-row">
+      <div>
+        <label for="activity">Activity</label>
+        <select id="activity"><option>Color Sorting Bins</option></select>
+      </div>
+      <div>
+        <label for="date">Date</label>
+        <input id="date" type="date">
+      </div>
+      <button type="button">Add to Plan</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Filter &amp; Totals</h2>
+    <div class="filter-row">
+      <label for="filter">Date:</label>
+      <select id="filter"><option>All dates</option><option>Oct 22</option><option>Oct 23</option></select>
+    </div>
+    <div class="totals"><span>Oct 22</span><strong>35 min prep</strong></div>
+    <div class="totals"><span>Oct 23</span><strong>10 min prep</strong></div>
+  </section>
+
+  <section class="panel">
+    <h2>Upcoming Activities</h2>
+    <div class="activity-row">
+      <div class="row-top">
+        <h3>Color Sorting Bins</h3>
+        <span class="status-pill status-needs-prep">Needs Prep</span>
+      </div>
+      <div class="meta">Oct 22 · Ages 2–3 · 20 min activity / 10 min prep</div>
+      <ul class="materials-list">
+        <li><input type="checkbox"> Sorting bins</li>
+        <li><input type="checkbox" checked> Colored pom-poms</li>
+      </ul>
+      <div class="row-actions"><button type="button">Remove</button></div>
+    </div>
+    <div class="activity-row">
+      <div class="row-top">
+        <h3>Pouring Practice</h3>
+        <span class="status-pill status-ready">Ready</span>
+      </div>
+      <div class="meta">Oct 22 · Ages 3–4 · 15 min activity / 5 min prep</div>
+      <ul class="materials-list">
+        <li><input type="checkbox" checked> Two small pitchers</li>
+        <li><input type="checkbox" checked> Tray</li>
+      </ul>
+      <div class="row-actions"><button type="button">Remove</button></div>
+    </div>
+    <div class="activity-row">
+      <div class="row-top">
+        <h3>Sandpaper Letters</h3>
+        <span class="status-pill status-needs-prep">Needs Prep</span>
+      </div>
+      <div class="meta">Oct 23 · Ages 3–5 · 15 min activity / 10 min prep</div>
+      <ul class="materials-list">
+        <li><input type="checkbox"> Letter cards</li>
+        <li><input type="checkbox"> Tracing tray</li>
+      </ul>
+      <div class="row-actions"><button type="button">Remove</button></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <button type="button" style="background:#51606b;">Reset Plan</button>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trial 1 — Card Grid (Warm/Spacious)</title>
+<style>
+  :root {
+    --bg: #faf6ef;
+    --panel: #ffffff;
+    --ink: #3b2f22;
+    --accent: #b5703d;
+    --accent-soft: #e9cfa8;
+    --ready: #4c7a52;
+    --needs-prep: #b5422c;
+    --border: #e4d6c1;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  header {
+    padding: 2rem 1.5rem 1rem;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+  }
+  header p {
+    margin: 0;
+    color: #6b5c47;
+    font-family: Verdana, sans-serif;
+    font-size: 0.95rem;
+  }
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.75rem;
+  }
+  .panel h2 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    font-family: Verdana, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+  .controls-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+    font-family: Verdana, sans-serif;
+  }
+  label { display: block; font-size: 0.85rem; margin-bottom: 0.3rem; }
+  select, input, button {
+    font-family: Verdana, sans-serif;
+    font-size: 0.95rem;
+    padding: 0.55rem 0.7rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .summary-strip {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-family: Verdana, sans-serif;
+  }
+  .summary-chip {
+    background: var(--accent-soft);
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .activity-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem;
+  }
+  .activity-card h3 {
+    margin: 0 0 0.3rem;
+    font-size: 1.15rem;
+  }
+  .meta {
+    font-family: Verdana, sans-serif;
+    font-size: 0.8rem;
+    color: #7a6a53;
+    margin-bottom: 0.6rem;
+  }
+  .status-badge {
+    display: inline-block;
+    font-family: Verdana, sans-serif;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    color: white;
+    margin-bottom: 0.6rem;
+  }
+  .status-ready { background: var(--ready); }
+  .status-needs-prep { background: var(--needs-prep); }
+  .materials-list {
+    font-family: Verdana, sans-serif;
+    font-size: 0.9rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.75rem;
+  }
+  .materials-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+  }
+  .card-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .card-actions button {
+    background: transparent;
+    color: var(--needs-prep);
+    border: 1px solid var(--needs-prep);
+    font-size: 0.8rem;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Lesson Prep Planner</h1>
+  <p>Trial 1 — Card Grid · Warm palette · Spacious · Serif headings</p>
+</header>
+<main>
+  <section class="panel">
+    <h2>Schedule an Activity</h2>
+    <div class="controls-row">
+      <div>
+        <label for="activity">Activity</label>
+        <select id="activity"><option>Color Sorting Bins</option></select>
+      </div>
+      <div>
+        <label for="date">Date</label>
+        <input id="date" type="date">
+      </div>
+      <button type="button">Add to Plan</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Overview</h2>
+    <div class="summary-strip">
+      <span class="summary-chip">Filter: <strong>All dates ▾</strong></span>
+      <span class="summary-chip">Oct 22 — 35 min prep needed</span>
+      <span class="summary-chip">Oct 23 — 10 min prep needed</span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Upcoming Activities</h2>
+    <div class="card-grid">
+      <article class="activity-card">
+        <span class="status-badge status-needs-prep">Needs Prep</span>
+        <h3>Color Sorting Bins</h3>
+        <div class="meta">Oct 22 · Ages 2–3 · 20 min activity · 10 min prep</div>
+        <ul class="materials-list">
+          <li><input type="checkbox"> Sorting bins</li>
+          <li><input type="checkbox" checked> Colored pom-poms</li>
+        </ul>
+        <div class="card-actions"><button type="button">Remove</button></div>
+      </article>
+      <article class="activity-card">
+        <span class="status-badge status-ready">Ready</span>
+        <h3>Pouring Practice</h3>
+        <div class="meta">Oct 22 · Ages 3–4 · 15 min activity · 5 min prep</div>
+        <ul class="materials-list">
+          <li><input type="checkbox" checked> Two small pitchers</li>
+          <li><input type="checkbox" checked> Tray</li>
+        </ul>
+        <div class="card-actions"><button type="button">Remove</button></div>
+      </article>
+      <article class="activity-card">
+        <span class="status-badge status-needs-prep">Needs Prep</span>
+        <h3>Sandpaper Letters</h3>
+        <div class="meta">Oct 23 · Ages 3–5 · 15 min activity · 10 min prep</div>
+        <ul class="materials-list">
+          <li><input type="checkbox"> Letter cards</li>
+          <li><input type="checkbox"> Tracing tray</li>
+        </ul>
+        <div class="card-actions"><button type="button">Remove</button></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel">
+    <button type="button" style="background:#8b6a4f;">Reset Plan</button>
+  </section>
+</main>
+</body>
+</html>
