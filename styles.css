@@ -1,0 +1,267 @@
+/* Lesson Prep Planner styles — implements DESIGN.md exactly.
+   Color palette, typography, and component rules below are adapted from
+   design-trials/trial-5-rootmap-style.html (the approved visual reference). */
+
+:root {
+  --bg: #fbf2e4;
+  --card: #fffcf6;
+  --mint: #e3ebe0;
+  --primary: #4b7c63;
+  --primary-dark: #2f4d3d;
+  --danger: #b5582f;
+  --apricot: #fbe9d7;
+  --silver: #ded0ba;
+  --text: #3b2a1a;
+  --muted: #8a7863;
+  --border: #eee1d0;
+  --on-primary: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* Rounded, friendly system sans (stand-in for RootMap's Nunito — no CDN allowed) */
+  font-family: -apple-system, 'Segoe UI', Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.phone-shell {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.brand .logo-mark {
+  font-size: 1.6rem;
+}
+
+.brand h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin: 0;
+}
+
+.panel {
+  background: var(--card);
+  border-radius: 22px;
+  padding: 1.25rem 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.panel-mint {
+  background: var(--mint);
+}
+
+.panel h2 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin: 0 0 0.4rem;
+}
+
+.panel p {
+  margin: 0 0 1rem;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  background: var(--primary);
+  color: var(--on-primary);
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.pill-btn:hover {
+  background: var(--primary-dark);
+}
+
+.pill-btn-silver {
+  background: var(--silver);
+  color: var(--text);
+}
+
+.pill-btn-outline {
+  width: auto;
+  background: transparent;
+  color: var(--danger);
+  border: 1.5px solid var(--danger);
+  padding: 0.4rem 0.9rem;
+  font-size: 0.78rem;
+}
+
+.pill-btn-outline:hover {
+  background: var(--danger);
+  color: var(--on-primary);
+}
+
+/* Text/date/select fields only — checkboxes are styled separately below
+   so this full-width rule doesn't stretch them (see DESIGN.md pitfall). */
+select,
+input[type="text"],
+input[type="date"] {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  width: 100%;
+  margin-bottom: 0.4rem;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  flex: none;
+  margin: 0;
+}
+
+label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.inline-error {
+  color: var(--danger);
+  font-size: 0.8rem;
+  display: block;
+  margin: -0.1rem 0 0.6rem;
+}
+
+.section-label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+}
+
+.empty-message {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+}
+
+.summary-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.chip {
+  background: var(--apricot);
+  color: var(--text);
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.activity-card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 1rem 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.activity-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.status-badge {
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  color: var(--on-primary);
+  white-space: nowrap;
+}
+
+.status-ready {
+  background: var(--primary);
+}
+
+.status-needs-prep {
+  background: var(--danger);
+}
+
+.meta-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.meta-pill {
+  background: var(--mint);
+  color: var(--primary-dark);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.materials-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.7rem;
+  font-size: 0.88rem;
+}
+
+.materials-list li {
+  padding: 0.2rem 0;
+}
+
+.materials-list label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text);
+  font-size: inherit;
+  margin-bottom: 0;
+}
+
+.card-actions {
+  text-align: right;
+}
+
+.reset-panel {
+  text-align: center;
+}
