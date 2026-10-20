@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trial 3 — Sidebar Dashboard (Desktop-first, Pastel)</title>
+<style>
+  :root {
+    --bg: #fdf7fb;
+    --panel: #ffffff;
+    --ink: #3a2e3d;
+    --accent: #8c5a9e;
+    --accent-light: #ead7f0;
+    --ready: #5a9c7a;
+    --needs-prep: #d97a6c;
+    --border: #ecdcf0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Trebuchet MS', Verdana, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+  }
+  aside {
+    background: var(--accent);
+    color: white;
+    padding: 1.5rem;
+  }
+  aside h1 { font-size: 1.3rem; margin: 0 0 0.25rem; }
+  aside p.tagline { font-size: 0.8rem; opacity: 0.85; margin: 0 0 1.5rem; }
+  aside h2 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+    margin: 1.25rem 0 0.5rem;
+  }
+  aside label { display: block; font-size: 0.8rem; margin-bottom: 0.25rem; }
+  aside select, aside input, aside button {
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.4);
+    margin-bottom: 0.75rem;
+    background: rgba(255,255,255,0.12);
+    color: white;
+  }
+  aside select option { color: #333; }
+  aside button {
+    background: white;
+    color: var(--accent);
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  .reset-btn { background: transparent !important; color: white !important; border: 1px solid rgba(255,255,255,0.6) !important; }
+  main {
+    padding: 1.75rem 2rem;
+  }
+  .summary-cards {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .summary-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.9rem 1.2rem;
+    min-width: 150px;
+  }
+  .summary-card .label { font-size: 0.75rem; color: #7a6683; }
+  .summary-card .value { font-size: 1.3rem; font-weight: bold; color: var(--accent); }
+  table.activity-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  table.activity-table th, table.activity-table td {
+    text-align: left;
+    padding: 0.7rem 0.9rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+  table.activity-table th {
+    background: var(--accent-light);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+  }
+  .status-tag {
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    color: white;
+  }
+  .status-ready { background: var(--ready); }
+  .status-needs-prep { background: var(--needs-prep); }
+  .materials-inline label { display: inline-flex; align-items: center; gap: 0.25rem; margin-right: 0.6rem; font-size: 0.82rem; }
+  .remove-link {
+    background: none;
+    border: none;
+    color: var(--needs-prep);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+  @media (max-width: 720px) {
+    .layout { grid-template-columns: 1fr; }
+    aside { order: 2; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside>
+    <h1>Lesson Prep Planner</h1>
+    <p class="tagline">Trial 3 — Sidebar dashboard · Pastel · Desktop-first</p>
+
+    <h2>Schedule</h2>
+    <label for="activity">Activity</label>
+    <select id="activity"><option>Color Sorting Bins</option></select>
+    <label for="date">Date</label>
+    <input id="date" type="date">
+    <button type="button">Add to Plan</button>
+
+    <h2>Filter</h2>
+    <label for="filter">Show date</label>
+    <select id="filter"><option>All dates</option><option>Oct 22</option><option>Oct 23</option></select>
+
+    <h2>Plan Controls</h2>
+    <button type="button" class="reset-btn">Reset Plan</button>
+  </aside>
+  <main>
+    <div class="summary-cards">
+      <div class="summary-card"><div class="label">Oct 22 Prep</div><div class="value">35 min</div></div>
+      <div class="summary-card"><div class="label">Oct 23 Prep</div><div class="value">10 min</div></div>
+      <div class="summary-card"><div class="label">Scheduled</div><div class="value">3</div></div>
+    </div>
+    <table class="activity-table">
+      <thead>
+        <tr><th>Activity</th><th>Date</th><th>Ages</th><th>Status</th><th>Materials</th><th></th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Color Sorting Bins</td>
+          <td>Oct 22</td>
+          <td>2–3</td>
+          <td><span class="status-tag status-needs-prep">Needs Prep</span></td>
+          <td class="materials-inline">
+            <label><input type="checkbox"> Sorting bins</label>
+            <label><input type="checkbox" checked> Pom-poms</label>
+          </td>
+          <td><button type="button" class="remove-link">Remove</button></td>
+        </tr>
+        <tr>
+          <td>Pouring Practice</td>
+          <td>Oct 22</td>
+          <td>3–4</td>
+          <td><span class="status-tag status-ready">Ready</span></td>
+          <td class="materials-inline">
+            <label><input type="checkbox" checked> Pitchers</label>
+            <label><input type="checkbox" checked> Tray</label>
+          </td>
+          <td><button type="button" class="remove-link">Remove</button></td>
+        </tr>
+        <tr>
+          <td>Sandpaper Letters</td>
+          <td>Oct 23</td>
+          <td>3–5</td>
+          <td><span class="status-tag status-needs-prep">Needs Prep</span></td>
+          <td class="materials-inline">
+            <label><input type="checkbox"> Letter cards</label>
+            <label><input type="checkbox"> Tracing tray</label>
+          </td>
+          <td><button type="button" class="remove-link">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</div>
+</body>
+</html>

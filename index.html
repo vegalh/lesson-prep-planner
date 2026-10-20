@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson Prep Planner</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="phone-shell">
+  <header class="brand">
+    <span class="logo-mark" aria-hidden="true">🪴</span>
+    <h1>Lesson Prep Planner</h1>
+  </header>
+
+  <main>
+    <section class="panel panel-mint" aria-labelledby="schedule-heading">
+      <h2 id="schedule-heading">Schedule an Activity</h2>
+      <p>Pick a starter activity and a date to add it to your plan.</p>
+
+      <form id="schedule-form" novalidate>
+        <label for="activity-select">Activity</label>
+        <select id="activity-select" name="activity"></select>
+        <span class="inline-error" id="activity-error" hidden></span>
+
+        <label for="date-input">Date</label>
+        <input type="date" id="date-input" name="date">
+        <span class="inline-error" id="date-error" hidden></span>
+
+        <button type="submit" class="pill-btn">+ Add to Plan</button>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="overview-heading">
+      <h2 id="overview-heading" class="section-label">Overview</h2>
+      <div class="summary-chips" id="summary-chips"></div>
+
+      <label for="date-filter">Filter by date</label>
+      <select id="date-filter"></select>
+    </section>
+
+    <section aria-labelledby="activities-heading">
+      <h2 id="activities-heading" class="section-label">Upcoming Activities</h2>
+      <div id="activities-list"></div>
+    </section>
+
+    <section class="panel reset-panel" aria-label="Reset plan">
+      <button type="button" id="reset-button" class="pill-btn pill-btn-silver">Reset Plan</button>
+      <p class="empty-message" id="reset-confirmation" role="status" hidden>Plan reset.</p>
+    </section>
+  </main>
+</div>
+
+<script src="activities-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
