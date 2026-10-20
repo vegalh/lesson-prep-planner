@@ -248,4 +248,72 @@ function handleScheduleSubmit(event) {
 
 document.getElementById("schedule-form").addEventListener("submit", handleScheduleSubmit);
 
+// --- Toggle material ready (event delegation: one listener for every card) ---
+
+function handleActivitiesListChange(event) {
+  const checkbox = event.target;
+  if (checkbox.type !== "checkbox") return;
+
+  const { scheduleId, material } = checkbox.dataset;
+  const entry = scheduledEntries.find((e) => e.scheduleId === scheduleId);
+  if (!entry) return;
+
+  entry.materialsReady[material] = checkbox.checked;
+  saveScheduledEntries();
+
+  // Only the one card's status badge needs to change, but re-rendering the
+  // whole list keeps this simple and the list is small enough that it's
+  // not worth hand-patching a single badge.
+  renderActivitiesList();
+}
+
+document.getElementById("activities-list").addEventListener("change", handleActivitiesListChange);
+
+// --- Remove a single scheduled entry ---
+
+function handleActivitiesListClick(event) {
+  const button = event.target.closest("[data-remove-id]");
+  if (!button) return;
+
+  const scheduleId = button.dataset.removeId;
+  scheduledEntries = scheduledEntries.filter((e) => e.scheduleId !== scheduleId);
+  saveScheduledEntries();
+
+  renderSummaryChips();
+  renderDateFilterOptions();
+  renderActivitiesList();
+}
+
+document.getElementById("activities-list").addEventListener("click", handleActivitiesListClick);
+
+// --- Filter by date ---
+
+function handleDateFilterChange(event) {
+  dateFilter = event.target.value;
+  renderActivitiesList();
+}
+
+document.getElementById("date-filter").addEventListener("change", handleDateFilterChange);
+
+// --- Reset ---
+
+function handleResetClick() {
+  scheduledEntries = [];
+  dateFilter = "all";
+  saveScheduledEntries();
+
+  renderSummaryChips();
+  renderDateFilterOptions();
+  renderActivitiesList();
+
+  const confirmation = document.getElementById("reset-confirmation");
+  confirmation.hidden = false;
+  clearTimeout(handleResetClick.hideTimer);
+  handleResetClick.hideTimer = setTimeout(() => {
+    confirmation.hidden = true;
+  }, 3000);
+}
+
+document.getElementById("reset-button").addEventListener("click", handleResetClick);
+
 renderAll();
