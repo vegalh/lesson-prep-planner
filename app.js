@@ -165,6 +165,7 @@ function renderActivityCard(entry) {
         <span class="meta-pill">Ages ${activity.ageRange}</span>
         <span class="meta-pill">${activity.durationMinutes} min</span>
       </div>
+      <img class="activity-photo" src="${activity.image}" alt="${activity.name}">
       <ul class="materials-list">${materialsHtml}</ul>
       <div class="card-actions">
         <button type="button" class="pill-btn pill-btn-outline" data-remove-id="${entry.scheduleId}">Remove</button>
