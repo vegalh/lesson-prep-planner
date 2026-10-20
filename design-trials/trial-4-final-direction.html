@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trial 4 — Final Direction (Cards + Rounded Sans + RootMap Colors)</title>
+<style>
+  :root {
+    --bg: #fbf2e4;
+    --card: #fffcf6;
+    --elevated: #eef1e6;
+    --primary: #4b7c63;
+    --primary-dark: #2f4d3d;
+    --danger: #b5582f;
+    --apricot: #fbe9d7;
+    --silver: #ded0ba;
+    --text: #3b2a1a;
+    --muted: #8a7863;
+    --border: #eee1d0;
+    --on-primary: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Trebuchet MS', Verdana, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  header {
+    padding: 2rem 1.5rem 1rem;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2rem;
+  }
+  header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  .panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    margin-bottom: 1.75rem;
+  }
+  .panel h2 {
+    font-size: 1rem;
+    margin-top: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--primary-dark);
+  }
+  .controls-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+  label { display: block; font-size: 0.85rem; margin-bottom: 0.3rem; color: var(--muted); }
+  select, input, button {
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.55rem 0.7rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+  }
+  button {
+    background: var(--primary);
+    color: var(--on-primary);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  button:hover { background: var(--primary-dark); }
+  .inline-error {
+    color: var(--danger);
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+    display: block;
+  }
+  .summary-strip {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .summary-chip {
+    background: var(--apricot);
+    color: var(--text);
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .activity-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.1rem;
+  }
+  .activity-card h3 {
+    margin: 0 0 0.3rem;
+    font-size: 1.1rem;
+  }
+  .meta {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+  }
+  .status-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    color: var(--on-primary);
+    margin-bottom: 0.6rem;
+  }
+  .status-ready { background: var(--primary); }
+  .status-needs-prep { background: var(--danger); }
+  .materials-list {
+    font-size: 0.9rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.75rem;
+  }
+  .materials-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+  }
+  .card-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .card-actions button {
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+    font-size: 0.8rem;
+    font-weight: normal;
+  }
+  .card-actions button:hover { background: var(--danger); color: var(--on-primary); }
+  .reset-btn {
+    background: var(--silver);
+    color: var(--text);
+  }
+  @media (max-width: 480px) {
+    .controls-row { flex-direction: column; align-items: stretch; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Lesson Prep Planner</h1>
+  <p>Trial 4 — Card grid · Rounded sans font · RootMap color palette</p>
+</header>
+<main>
+  <section class="panel">
+    <h2>Schedule an Activity</h2>
+    <div class="controls-row">
+      <div>
+        <label for="activity">Activity</label>
+        <select id="activity"><option>Color Sorting Bins</option></select>
+      </div>
+      <div>
+        <label for="date">Date</label>
+        <input id="date" type="date">
+        <span class="inline-error">Please choose a date.</span>
+      </div>
+      <button type="button">Add to Plan</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Overview</h2>
+    <div class="summary-strip">
+      <span class="summary-chip">Filter: <strong>All dates ▾</strong></span>
+      <span class="summary-chip">Oct 22 — 35 min prep needed</span>
+      <span class="summary-chip">Oct 23 — 10 min prep needed</span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Upcoming Activities</h2>
+    <div class="card-grid">
+      <article class="activity-card">
+        <span class="status-badge status-needs-prep">Needs Prep</span>
+        <h3>Color Sorting Bins</h3>
+        <div class="meta">Oct 22 · Ages 2–3 · 20 min activity · 10 min prep</div>
+        <ul class="materials-list">
+          <li><input type="checkbox"> Sorting bins</li>
+          <li><input type="checkbox" checked> Colored pom-poms</li>
+        </ul>
+        <div class="card-actions"><button type="button">Remove</button></div>
+      </article>
+      <article class="activity-card">
+        <span class="status-badge status-ready">Ready</span>
+        <h3>Pouring Practice</h3>
+        <div class="meta">Oct 22 · Ages 3–4 · 15 min activity · 5 min prep</div>
+        <ul class="materials-list">
+          <li><input type="checkbox" checked> Two small pitchers</li>
+          <li><input type="checkbox" checked> Tray</li>
+        </ul>
+        <div class="card-actions"><button type="button">Remove</button></div>
+      </article>
+      <article class="activity-card">
+        <span class="status-badge status-needs-prep">Needs Prep</span>
+        <h3>Sandpaper Letters</h3>
+        <div class="meta">Oct 23 · Ages 3–5 · 15 min activity · 10 min prep</div>
+        <ul class="materials-list">
+          <li><input type="checkbox"> Letter cards</li>
+          <li><input type="checkbox"> Tracing tray</li>
+        </ul>
+        <div class="card-actions"><button type="button">Remove</button></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel">
+    <button type="button" class="reset-btn">Reset Plan</button>
+  </section>
+</main>
+</body>
+</html>
