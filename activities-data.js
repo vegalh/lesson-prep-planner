@@ -10,7 +10,8 @@ const starterActivities = [
     ageRange: "3-5 years",
     durationMinutes: 15,
     prepMinutes: 5,
-    materials: ["bowl for pods", "bowl for shelled edamame", "edamame pods", "small tray"]
+    materials: ["bowl for pods", "bowl for shelled edamame", "edamame pods", "small tray"],
+    image: "images/shelling-edamame.jpg"
   },
   {
     id: "opening-drawstring-bags",
@@ -18,7 +19,8 @@ const starterActivities = [
     ageRange: "2-4 years",
     durationMinutes: 10,
     prepMinutes: 3,
-    materials: ["basket", "drawstring cloth bags", "folded cloths"]
+    materials: ["basket", "drawstring cloth bags", "folded cloths"],
+    image: "images/opening-drawstring-bags.jpg"
   },
   {
     id: "pretend-ironing",
@@ -26,7 +28,8 @@ const starterActivities = [
     ageRange: "3-5 years",
     durationMinutes: 15,
     prepMinutes: 5,
-    materials: ["toy iron", "ironing board", "cloth to iron"]
+    materials: ["toy iron", "ironing board", "cloth to iron"],
+    image: "images/pretend-ironing.jpg"
   },
   {
     id: "de-fuzzing-sweater",
@@ -34,7 +37,8 @@ const starterActivities = [
     ageRange: "3-5 years",
     durationMinutes: 10,
     prepMinutes: 3,
-    materials: ["lint roller", "sweater or vest", "collection tray"]
+    materials: ["lint roller", "sweater or vest", "collection tray"],
+    image: "images/de-fuzzing-sweater.jpg"
   },
   {
     id: "watering-plants",
@@ -42,7 +46,8 @@ const starterActivities = [
     ageRange: "2-4 years",
     durationMinutes: 10,
     prepMinutes: 5,
-    materials: ["small watering can", "potted plants", "drip tray"]
+    materials: ["small watering can", "potted plants", "drip tray"],
+    image: "images/watering-plants.jpg"
   },
   {
     id: "spreading-nut-butter",
@@ -50,7 +55,8 @@ const starterActivities = [
     ageRange: "3-5 years",
     durationMinutes: 15,
     prepMinutes: 8,
-    materials: ["bread slice", "butter knife", "nut butter", "plate", "banana slices"]
+    materials: ["bread slice", "butter knife", "nut butter", "plate", "banana slices"],
+    image: "images/spreading-nut-butter.jpg"
   },
   {
     id: "leaf-fruit-matching-cards",
@@ -58,7 +64,8 @@ const starterActivities = [
     ageRange: "3-5 years",
     durationMinutes: 20,
     prepMinutes: 10,
-    materials: ["matching cards", "glue stick", "pressed leaves", "construction paper"]
+    materials: ["matching cards", "glue stick", "pressed leaves", "construction paper"],
+    image: "images/leaf-fruit-matching-cards.jpg"
   },
   {
     id: "handwashing-sink",
@@ -66,7 +73,8 @@ const starterActivities = [
     ageRange: "2-4 years",
     durationMinutes: 5,
     prepMinutes: 3,
-    materials: ["wash basin", "soap dispenser", "hand towel"]
+    materials: ["wash basin", "soap dispenser", "hand towel"],
+    image: "images/handwashing-sink.jpg"
   },
   {
     id: "washing-dishes",
@@ -74,7 +82,8 @@ const starterActivities = [
     ageRange: "3-5 years",
     durationMinutes: 20,
     prepMinutes: 8,
-    materials: ["wash basin", "dish soap", "sponge", "dish rack", "apron"]
+    materials: ["wash basin", "dish soap", "sponge", "dish rack", "apron"],
+    image: "images/washing-dishes.jpg"
   },
   {
     id: "leaf-matching",
@@ -82,7 +91,8 @@ const starterActivities = [
     ageRange: "3-5 years",
     durationMinutes: 15,
     prepMinutes: 10,
-    materials: ["pressed leaf cards", "wooden tray"]
+    materials: ["pressed leaf cards", "wooden tray"],
+    image: "images/leaf-matching.jpg"
   },
   {
     id: "mirror-cleaning",
@@ -90,7 +100,8 @@ const starterActivities = [
     ageRange: "3-5 years",
     durationMinutes: 10,
     prepMinutes: 3,
-    materials: ["spray bottle with water", "soft cloth"]
+    materials: ["spray bottle with water", "soft cloth"],
+    image: "images/mirror-cleaning.jpg"
   },
   {
     id: "mashing-potatoes",
@@ -98,7 +109,8 @@ const starterActivities = [
     ageRange: "3-5 years",
     durationMinutes: 15,
     prepMinutes: 10,
-    materials: ["cooked potatoes", "mixing bowl", "potato masher"]
+    materials: ["cooked potatoes", "mixing bowl", "potato masher"],
+    image: "images/mashing-potatoes.jpg"
   },
   {
     id: "leaf-pile-sensory-play",
@@ -106,7 +118,8 @@ const starterActivities = [
     ageRange: "2-4 years",
     durationMinutes: 20,
     prepMinutes: 5,
-    materials: ["pile of leaves", "outdoor space"]
+    materials: ["pile of leaves", "outdoor space"],
+    image: "images/leaf-pile-sensory-play.jpg"
   },
   {
     id: "rescuing-tied-up-animals",
@@ -114,7 +127,8 @@ const starterActivities = [
     ageRange: "3-5 years",
     durationMinutes: 10,
     prepMinutes: 5,
-    materials: ["ribbon or cord", "toy animals", "small tray"]
+    materials: ["ribbon or cord", "toy animals", "small tray"],
+    image: "images/rescuing-tied-up-animals.jpg"
   },
   {
     id: "table-washing",
@@ -122,7 +136,8 @@ const starterActivities = [
     ageRange: "3-5 years",
     durationMinutes: 15,
     prepMinutes: 8,
-    materials: ["cloth", "small bowl of water", "soap"]
+    materials: ["cloth", "small bowl of water", "soap"],
+    image: "images/table-washing.jpg"
   },
   {
     id: "mopping-floor",
@@ -130,6 +145,7 @@ const starterActivities = [
     ageRange: "3-5 years",
     durationMinutes: 15,
     prepMinutes: 5,
-    materials: ["child-size mop", "bucket of water"]
+    materials: ["child-size mop", "bucket of water"],
+    image: "images/mopping-floor.jpg"
   }
 ];
