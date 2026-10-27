@@ -62,7 +62,7 @@ The full array of scheduled entries is saved to `localStorage` under one key
 |---|---|---|---|
 | **Schedule an activity** | Form submit: pick activity (dropdown) + date (date input) | Validates inputs → appends a new scheduled entry to the in-memory array (with all materials defaulted to `false`) → re-renders | Yes, saved to `localStorage` |
 | **Toggle material ready** | Checkbox click on a scheduled entry | Flips that material's boolean in `materialsReady` for that entry → re-renders totals and status | Yes, saved to `localStorage` |
-| **Filter by date** | Dropdown change (fixed buckets: "All Upcoming", "Today", "Tomorrow", "This Week", "This Month", "Later", plus "Past (Outdated)" shown only when an overdue entry exists) | Does **not** change stored data — only changes what's rendered in the "upcoming activities" list. Every bucket except "Past" is scoped to today-or-later entries; "Past" is the one exception and surfaces overdue entries (date before today) so they can be reviewed or removed | No |
+| **Filter by date** | Dropdown change (fixed buckets: "All Upcoming", "Today", "Tomorrow", "This Week", "This Month", plus "Past (Outdated)" shown only when an overdue entry exists) | Does **not** change stored data — only changes what's rendered in the "upcoming activities" list. Every bucket except "Past" is scoped to today-or-later entries; "Past" is the one exception and surfaces overdue entries (date before today) so they can be reviewed or removed | No |
 | **Remove a scheduled entry** | "Remove" button on a single scheduled entry | Removes that one entry from the in-memory array by `scheduleId` → re-renders totals and list | Yes, saved to `localStorage` |
 | **Reset** | Reset button click | Clears the in-memory scheduled array to `[]` → clears the `localStorage` key → re-renders without reloading the page | Yes (clears storage) |
 
@@ -124,7 +124,7 @@ Computed fresh from state on every render — never stored directly:
   status badge, and a "Remove" button for that entry.
 - Prep-minutes-per-day output reflects current totals.
 - Date filter dropdown offers relative buckets ("All Upcoming", "Today",
-  "Tomorrow", "This Week", "This Month", "Later"), plus a "Past (Outdated)"
+  "Tomorrow", "This Week", "This Month"), plus a "Past (Outdated)"
   bucket that only appears once an entry's date has passed, and narrows the
   visible list without altering stored data.
 
@@ -141,8 +141,11 @@ Computed fresh from state on every render — never stored directly:
 ## Decisions Confirmed
 
 1. Date filter is a dropdown of relative buckets (All Upcoming/Today/
-   Tomorrow/This Week/This Month/Later/Past) rather than a free-form date
-   range picker or one option per literal scheduled date.
+   Tomorrow/This Week/This Month/Past) rather than a free-form date
+   range picker or one option per literal scheduled date. An earlier
+   "Later" bucket (anything past the end of the current month) was
+   dropped as redundant — "All Upcoming" already covers everything, so a
+   separate catch-all bucket added a choice without adding information.
 2. Users can remove a single scheduled entry individually, in addition to
    the full Reset action.
 3. Materials get individual checkboxes, **and** each scheduled activity also

@@ -131,3 +131,18 @@ Building on `PRD.md`'s functional definitions:
   already works on phone screens without a separate breakpoint.
   Resized/verified in the trial as a drop-in benefit of the phone-shell
   layout.
+- One `@media (max-width: 360px)` breakpoint trims the shell/panel padding
+  slightly on the smallest phones (e.g. iPhone SE), giving panels a bit more
+  usable width. Added after the Overview summary chips were found to wrap
+  one-per-row (each the width of nearly the whole panel) at narrow phone
+  widths, which read as a long, repetitive list rather than a quick
+  at-a-glance summary.
+- Summary chips are a fixed ~2-up grid (`flex-basis: 50%`, not
+  content-sized) and show the date and prep total on two stacked lines
+  (bold date, smaller muted `X min prep` underneath). Earlier the chip
+  text was a single line and was shortened to `Oct 27 · 5 min` to make it
+  fit — but dropping "prep" made the number read as wrong (it doesn't
+  match the activity duration shown on each card, e.g. a day can have
+  8 min of combined *prep* but 25 min of combined activity *duration*).
+  The two-line layout keeps the full, unambiguous `X min prep` wording
+  while still guaranteeing two chips per row on any phone width.

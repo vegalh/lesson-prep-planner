@@ -34,7 +34,7 @@ day needs.
    the status badge flips from "Needs Prep" to "Ready" once every material
    is checked.
 4. Use the **Overview** section's date dropdown to narrow the list to
-   Today, Tomorrow, This Week, This Month, or Later — or leave it on "All
+   Today, Tomorrow, This Week, or This Month — or leave it on "All
    Upcoming." A "Past (Outdated)" option appears automatically whenever an
    entry's date has passed, so overdue activities can be found and cleaned up.
 5. Use **Remove** on a card to drop just that one scheduled entry, or

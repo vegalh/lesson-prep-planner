@@ -100,7 +100,6 @@ const DATE_FILTERS = {
   TOMORROW: "tomorrow",
   WEEK: "week",
   MONTH: "month",
-  LATER: "later",
   PAST: "past"
 };
 
@@ -159,10 +158,6 @@ function getVisibleEntries() {
       const monthEnd = endOfMonthDateStr(today);
       return upcoming.filter((entry) => entry.date <= monthEnd);
     }
-    case DATE_FILTERS.LATER: {
-      const monthEnd = endOfMonthDateStr(today);
-      return upcoming.filter((entry) => entry.date > monthEnd);
-    }
     case DATE_FILTERS.ALL:
     default:
       return upcoming;
@@ -177,7 +172,6 @@ const DATE_FILTER_LABELS = {
   [DATE_FILTERS.TOMORROW]: "Tomorrow",
   [DATE_FILTERS.WEEK]: "This Week",
   [DATE_FILTERS.MONTH]: "This Month",
-  [DATE_FILTERS.LATER]: "Later",
   [DATE_FILTERS.PAST]: "Past (Outdated)"
 };
 
@@ -207,8 +201,16 @@ function renderSummaryChips() {
       // A past date only ends up here if time has moved on since it was
       // scheduled — label it so the stale total isn't mistaken for upcoming prep.
       const pastClass = isPastDate(date) ? " chip-past" : "";
-      const pastLabel = isPastDate(date) ? " (Past)" : "";
-      return `<span class="chip${pastClass}">${formatDateDisplay(date)}${pastLabel} — ${totals[date]} min prep</span>`;
+      const pastLabel = isPastDate(date) ? " · Past" : "";
+      // "prep" must stay in the label: this total is prep time, not activity
+      // duration, and the two can differ a lot on days with multiple
+      // activities (duration is shown separately on each activity card).
+      // Dropping the word made the number look wrong/mismatched — it wasn't
+      // miscalculated, just ambiguous about what it was counting.
+      // Split across two deliberate lines (date, then the prep detail) so
+      // chips stay a predictable height and don't rely on the browser's
+      // text-wrap landing in a sensible spot to stay compact on phones.
+      return `<span class="chip${pastClass}"><span class="chip-date">${formatDateDisplay(date)}</span><span class="chip-detail">${totals[date]} min prep${pastLabel}</span></span>`;
     })
     .join("");
 }
@@ -224,8 +226,7 @@ function renderDateFilterOptions() {
     DATE_FILTERS.TODAY,
     DATE_FILTERS.TOMORROW,
     DATE_FILTERS.WEEK,
-    DATE_FILTERS.MONTH,
-    DATE_FILTERS.LATER
+    DATE_FILTERS.MONTH
   ];
 
   const options = buckets.map(
