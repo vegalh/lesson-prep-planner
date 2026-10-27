@@ -44,7 +44,12 @@ body {
 }
 
 .brand .logo-mark {
-  font-size: 1.6rem;
+  display: flex;
+}
+
+.brand .logo-mark svg {
+  width: 28px;
+  height: 32px;
 }
 
 .brand h1 {

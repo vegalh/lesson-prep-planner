@@ -70,6 +70,11 @@ Extracted from rootmapmvp's shipped CSS custom properties (light theme).
 
 ## Components
 
+- **Brand mark** (top-left, next to the "Lesson Prep Planner" heading): an
+  inline SVG tree icon (no external file, no emoji, no wordmark baked into
+  the graphic — the app name is the adjacent `<h1>` text). Rendered at
+  `28×32px`. Decorative only (`aria-hidden="true"`); the page title already
+  carries the accessible name.
 - **Cards/panels**: `border-radius: 20–22px`, no border, background
   `--card` (or `--mint` for the schedule form panel specifically).
 - **Buttons**: pill-shaped (`border-radius: 999px`), bold text.
