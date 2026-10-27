@@ -156,6 +156,13 @@ label {
   margin: -0.1rem 0 0.6rem;
 }
 
+.field-hint {
+  color: var(--muted);
+  font-size: 0.75rem;
+  display: block;
+  margin: -0.4rem 0 0.6rem;
+}
+
 .section-label {
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -184,6 +191,11 @@ label {
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
   font-size: 0.8rem;
+}
+
+.chip-past {
+  background: var(--silver);
+  color: var(--muted);
 }
 
 .activity-card {
@@ -236,6 +248,15 @@ label {
   font-size: 0.75rem;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
+}
+
+.meta-pill-past {
+  background: var(--danger);
+  color: var(--on-primary);
+}
+
+.activity-card-past {
+  box-shadow: inset 4px 0 0 var(--danger);
 }
 
 .activity-photo {
