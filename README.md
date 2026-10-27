@@ -33,8 +33,10 @@ day needs.
 3. In **Upcoming Activities**, check off each material as you prepare it —
    the status badge flips from "Needs Prep" to "Ready" once every material
    is checked.
-4. Use the **Overview** section's date dropdown to filter the list down to
-   one day, or leave it on "All dates."
+4. Use the **Overview** section's date dropdown to narrow the list to
+   Today, Tomorrow, This Week, This Month, or Later — or leave it on "All
+   Upcoming." A "Past (Outdated)" option appears automatically whenever an
+   entry's date has passed, so overdue activities can be found and cleaned up.
 5. Use **Remove** on a card to drop just that one scheduled entry, or
    **Reset Plan** to clear everything and start over. The starter activity
    dropdown always stays fully populated, even after a reset.

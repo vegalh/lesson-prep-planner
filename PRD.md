@@ -140,8 +140,9 @@ Computed fresh from state on every render — never stored directly:
 
 ## Decisions Confirmed
 
-1. Date filter is a dropdown built from dates that currently have scheduled
-   entries (not a free-form date range picker).
+1. Date filter is a dropdown of relative buckets (All Upcoming/Today/
+   Tomorrow/This Week/This Month/Later/Past) rather than a free-form date
+   range picker or one option per literal scheduled date.
 2. Users can remove a single scheduled entry individually, in addition to
    the full Reset action.
 3. Materials get individual checkboxes, **and** each scheduled activity also
