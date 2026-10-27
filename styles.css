@@ -21,13 +21,23 @@
   box-sizing: border-box;
 }
 
+html {
+  /* Matches body's background so a mobile overscroll/rubber-band swipe
+     can't reveal a mismatched (white) canvas or repaint glitch at the
+     top/bottom edges. */
+  background: var(--bg);
+  height: 100%;
+}
+
 body {
   margin: 0;
+  min-height: 100%;
   /* Rounded, friendly system sans (stand-in for RootMap's Nunito — no CDN allowed) */
   font-family: -apple-system, 'Segoe UI', Verdana, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.5;
+  overscroll-behavior-y: contain;
 }
 
 .phone-shell {

@@ -151,3 +151,8 @@ Building on `PRD.md`'s functional definitions:
   8 min of combined *prep* but 25 min of combined activity *duration*).
   The two-line layout keeps the full, unambiguous `X min prep` wording
   while still guaranteeing two chips per row on any phone width.
+- `html`/`body` share the same `--bg` background and `overscroll-behavior-y:
+  contain` so a mobile overscroll/rubber-band swipe at the top or bottom of
+  the page can't reveal a mismatched (white) canvas or repaint glitch —
+  reported as content briefly looking duplicated/jumbled while swiping on a
+  narrow mobile preview.
